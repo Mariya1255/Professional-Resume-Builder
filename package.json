@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "dev": "https-server . -p 3000"
+  },
+  "dependencies": {
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.2"
+  }
+}

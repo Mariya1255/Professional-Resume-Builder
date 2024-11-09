@@ -1,0 +1,116 @@
+/* Styling for form and resume sections */
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 15px;
+    padding: 0;
+    background-color: #faf9fc;
+}
+
+form, #resume-display {
+    margin: auto;
+    background-color: rgb(100, 196, 164);
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(122, 84, 84, 0.1);
+    padding: 50px;
+    max-width: 600px;
+}
+
+h1 {
+    text-align: center;
+    color: #864113;
+}
+
+fieldset {
+    border: 2px solid rgb(168, 62, 23);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    background-color: rgb(201, 219, 159);
+}
+
+legend {
+    font-weight: bold;
+    text-align: left;
+    color: #101013;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    color: rgba(78, 29, 45, 0.904);
+}
+
+input, textarea {
+    margin-top: 4px;
+    padding: 8px;
+    width: calc(100% - 1px);
+    border: 1px solid rgb(139, 31, 125);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+button {
+    display: block;
+    width: 20;
+    background-color: #141814;
+    color: rgb(241, 245, 241) ;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(221, 13, 13, 0.5);
+    margin-top: 10px;
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    color: #91c094;
+}
+
+#resume-display {
+    text-align: left;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px; /* Adjust as needed for spacing */
+}
+
+#edit-button {
+    display: block;
+    width: 20;
+    background-color: #141814;
+    color: rgb(244, 245, 244) ;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(189, 39, 39, 0.5);
+    margin-top: 10px;
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10px;
+    cursor: pointer;
+   
+}
+
+#edit-button:hover {
+    color: #91c094;
+}
+
+#resume-display {
+    text-align: right;
+}
+
+#download-pdf-button {
+    background-color: #141814;
+    color: rgb(244, 245, 244);
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(189, 39, 39, 0.5);
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10px;
+    cursor: pointer;
+}

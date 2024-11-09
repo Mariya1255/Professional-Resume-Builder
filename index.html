@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Professional Resume Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+    <!-- Include your compiled JavaScript file here -->
+    <script src="path/to/your-file.js"></script>
+
+    <h1>Professional Resume Builder</h1>
+    <form id="resume-form">
+        <fieldset>
+            <legend>Profile Picture</legend>
+            
+            <label for="profile">Upload Profile Picture:</label>
+            <input type="file" id="profile" accept="image/*">
+        </fieldset>
+
+        <fieldset>
+            <legend>Personal Information</legend>
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" placeholder="Enter your phone number" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>Education</legend>
+            <label for="education">Education:</label>
+            <textarea id="education" placeholder="Enter your education" rows="4" required></textarea>
+        </fieldset>
+
+        <fieldset>
+            <legend>Experience</legend>
+            <label for="experience">Experience:</label>
+            <textarea id="experience" placeholder="Enter your work experience" rows="4" required></textarea>
+        </fieldset>
+
+        <fieldset>
+            <legend>Skills</legend>
+            <label for="skills">Skills:</label>
+            <textarea id="skills" placeholder="Enter your skills" rows="4" required></textarea>
+        </fieldset>   
+       
+
+        <div class="button-container">
+            <button id="edit-button">Edit Resume</button>
+            <button id="generate-button">Generate Resume</button>
+            <button id="download-pdf-button" onclick="downloadPDF()">Download PDF</button>
+        </div>
+    </form>
+
+    <br>
+    <div id="resume-display" style="display: none;">
+        <h2>Your Resume</h2>
+        <p><strong>Name:</strong> <span id ="display-name"></span></p>
+        <p><strong>Email:</strong> <span id ="display-email"></span></p>
+        <p><strong>Phone:</strong> <span id ="display-phone"></span></p>
+        <p><strong>Education:</strong> <span id ="display-education"></span></p>
+        <p><strong>Experience:</strong> <span id ="display-experience"></span></p>
+        <p><strong>Skills:</strong> <span id ="display-skills"></span></p>
+        <button id="edit-button">Edit Resume</button>  
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        async function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF('p', 'pt', 'a4');
+            const resumeElement = document.getElementById("resume-display");
+            
+            if (!resumeElement) {
+                console.error("Resume display element not found.");
+                return;
+            }
+
+            const canvas = await html2canvas(resumeElement, { scale: 2 });
+            const imgData = canvas.toDataURL("image/png");
+            
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+            
+            pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+            pdf.save("resume.pdf");
+        }
+    </script>
+    
+    
+    <script src="script.js"></script>
+</body>
+</html>
